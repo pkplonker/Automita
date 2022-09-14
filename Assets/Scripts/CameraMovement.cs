@@ -13,10 +13,7 @@ namespace StuartH
         [SerializeField] private Camera playerCamera;
         [SerializeField] private float rotationSpeed;
 
-        private void Update()
-        {
-        }
-
+      
         private void LateUpdate()
         {
             transform.position = playerMovement.transform.position;
