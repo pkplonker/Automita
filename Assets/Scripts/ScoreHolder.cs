@@ -44,4 +44,16 @@ public class ScoreHolder : ScriptableObject
       OrderScores();
      return scores.FindIndex(x=>highscore)+1;
    }
+
+   public void LoadScores(List<ScoreSaveData> saves)
+   {
+      scores.Clear();
+      foreach (var s in saves)
+      {
+         var x = ScriptableObject.CreateInstance<Highscore>();
+         x.gold = s.gold;
+         x.time = s.time;
+         scores.Add(x);
+      }
+   }
 }

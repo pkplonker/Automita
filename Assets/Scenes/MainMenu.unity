@@ -989,7 +989,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1428219227}
-        m_MethodName: Quit
+        m_MethodName: QuitUI
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1203,6 +1203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasGroup: {fileID: 0}
+  scoreHolder: {fileID: 11400000, guid: 974b6149ff9e4cc499e0b8782c71d78f, type: 2}
   highscoresUI: {fileID: 1229644876}
 --- !u!225 &1428219228
 CanvasGroup:

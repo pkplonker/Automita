@@ -38,15 +38,7 @@ namespace StuartH
             if (Input.GetKeyDown(KeyCode.Escape)) PauseToggle();
         }
 
-        public static void Quit()
-        {
-#if UNITY_EDITOR
-            Debug.Log("Quitting application");
-            UnityEditor.EditorApplication.isPlaying = false;
-#else
-			Application.Quit();
-#endif
-        }
+        public void Quit() => MainMenu.Quit();
 
 
     }

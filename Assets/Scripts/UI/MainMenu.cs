@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,16 +11,28 @@ namespace StuartH
     /// </summary>
     public class MainMenu : CanvasGroupBase
     {
+        [SerializeField] private ScoreHolder scoreHolder;
+         private static ScoreHolder SCOREHOLDER;
+
         [SerializeField] private HighscoresUI highscoresUI;
         public void NewGame() => SceneManager.LoadScene(2);
+
+        private void Awake()
+        {
+            SCOREHOLDER = scoreHolder;
+        }
 
         public void Highscores()
         {
             Hide();
             highscoresUI.Show(0.2f);
         }
+
+        public void QuitUI() => Quit();
         public static void Quit()
         {
+            
+            SaveFileHandler.Save(SCOREHOLDER);
 #if UNITY_EDITOR
             Debug.Log("Quitting application");
             UnityEditor.EditorApplication.isPlaying = false;
