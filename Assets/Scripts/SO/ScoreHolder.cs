@@ -51,10 +51,10 @@ namespace StuartH
          return scores.FindIndex(x => highscore) + 1;
       }
 
-      public void LoadScores(List<ScoreSaveData> saves)
+      public void LoadScores(ScoreSaveDataList savedScores)
       {
          scores.Clear();
-         foreach (var s in saves)
+         foreach (var s in savedScores.scores)
          {
             var x = ScriptableObject.CreateInstance<Highscore>();
             x.gold = s.gold;

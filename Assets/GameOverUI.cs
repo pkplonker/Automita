@@ -16,7 +16,6 @@ public class GameOverUI : MonoBehaviour
 
     private void Awake()
     {
-        
         var scoreClone = ScriptableObject.Instantiate(highscore);
         scores.AddScore(scoreClone);
         var rank = scores.GetRank(highscore);
@@ -26,6 +25,7 @@ public class GameOverUI : MonoBehaviour
         scoreText.text += "Time: " + time.ToString("hh':'mm':'ss");
         scoreText.text += "\n"+"Gold: " + highscore.gold + "\n";
         scoreText.text += "Final score: " + highscore.GetTotalScore();
+        SaveFileHandler.Save(scores);
     }
 
     public void TryAgain() => SceneManager.LoadScene(gameIndex);

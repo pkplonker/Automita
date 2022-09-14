@@ -61,6 +61,8 @@ namespace StuartH
 
         public void Show(float v = 0f)
         {
+            SaveFileHandler.Load(scoreHolder);
+
             ShowUI(v);
             if (scoreHolder == null) return;
             if (scoreEntryPrefab == null) return;
