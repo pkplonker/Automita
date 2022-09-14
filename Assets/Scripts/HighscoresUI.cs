@@ -5,61 +5,69 @@ using StuartH;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class HighscoresUI : CanvasGroupBase
+namespace StuartH
 {
-    [SerializeField] private GameObject scoreTitlePrefab;
 
-    [SerializeField] private GameObject scoreEntryPrefab;
-    [SerializeField] private List<HighscoresEntryUI> highscoresEntryUI;
-    [SerializeField] private ScoreHolder scoreHolder;
-    [SerializeField] private Transform container;
-    [SerializeField] private int scoresToShow = 5;
-    [SerializeField] private MainMenu mainMenu;
+    /// <summary>
+    ///HighscoresUI - This class is used to display the highscores in the UI
+    /// </summary>
 
-    private void Awake()
+    public class HighscoresUI : CanvasGroupBase
     {
-        highscoresEntryUI = new List<HighscoresEntryUI>(scoresToShow);
-        Instantiate(scoreTitlePrefab, container);
-        Hide();
-    }
+        [SerializeField] private GameObject scoreTitlePrefab;
 
-    private void ClearExistingScores()
-    {
-        foreach (var hs in highscoresEntryUI)
+        [SerializeField] private GameObject scoreEntryPrefab;
+        [SerializeField] private List<HighscoresEntryUI> highscoresEntryUI;
+        [SerializeField] private ScoreHolder scoreHolder;
+        [SerializeField] private Transform container;
+        [SerializeField] private int scoresToShow = 5;
+        [SerializeField] private MainMenu mainMenu;
+
+        private void Awake()
         {
-            if (hs == null) continue;
-            Destroy(hs.gameObject);
+            highscoresEntryUI = new List<HighscoresEntryUI>(scoresToShow);
+            Instantiate(scoreTitlePrefab, container);
+            Hide();
         }
 
-        highscoresEntryUI.Clear();
-    }
-
-    private void UpdateScoreEntries()
-    {
-        var scores = scoreHolder.GetTopScores(scoresToShow);
-
-        for (var i = 0; i < scores.Count; i++)
+        private void ClearExistingScores()
         {
-            if (scores[i] == null) continue;
-            var hse = Instantiate(scoreEntryPrefab, container).GetComponent<HighscoresEntryUI>();
-            hse.UpdateScore(scores[i], i);
+            foreach (var hs in highscoresEntryUI)
+            {
+                if (hs == null) continue;
+                Destroy(hs.gameObject);
+            }
+
+            highscoresEntryUI.Clear();
         }
-    }
 
-    public void Return()
-    {
-        mainMenu.Show(.1f);
-        Hide(.1f);
-    }
+        private void UpdateScoreEntries()
+        {
+            var scores = scoreHolder.GetTopScores(scoresToShow);
 
-    public void Show(float v = 0f)
-    {
-        ShowUI(v);
-        if (scoreHolder == null) return;
-        if (scoreEntryPrefab == null) return;
-        ClearExistingScores();
-        UpdateScoreEntries();
-    }
+            for (var i = 0; i < scores.Count; i++)
+            {
+                if (scores[i] == null) continue;
+                var hse = Instantiate(scoreEntryPrefab, container).GetComponent<HighscoresEntryUI>();
+                hse.UpdateScore(scores[i], i);
+            }
+        }
 
-    public void Hide(float v = 0f) => HideUI(v);
+        public void Return()
+        {
+            mainMenu.Show(.1f);
+            Hide(.1f);
+        }
+
+        public void Show(float v = 0f)
+        {
+            ShowUI(v);
+            if (scoreHolder == null) return;
+            if (scoreEntryPrefab == null) return;
+            ClearExistingScores();
+            UpdateScoreEntries();
+        }
+
+        public void Hide(float v = 0f) => HideUI(v);
+    }
 }

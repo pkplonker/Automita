@@ -315,7 +315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  panSpeed: 1.5
+  panSpeed: 3
   isActive: 1
   maxMoveAmount: 50
   JumpVelocity: 0

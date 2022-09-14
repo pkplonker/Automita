@@ -5,13 +5,20 @@ using System.Security.Cryptography;
 using StuartH;
 using UnityEngine;
 
-public class Pickup : MonoBehaviour
+namespace StuartH
 {
-    [SerializeField] private int amount;
-    private void OnTriggerEnter(Collider other)
+    /// <summary>
+    ///Pickup - A pickup item that can be picked up by the player
+    /// </summary>
+    public class Pickup : MonoBehaviour
     {
-        Debug.Log("picked up");
-        GoldTracker.Pickup(amount <= 0 ? 1 : amount);
-        Destroy(gameObject);
+        [SerializeField] private int amount;
+
+        private void OnTriggerEnter(Collider other)
+        {
+            Debug.Log("picked up");
+            GoldTracker.Pickup(amount <= 0 ? 1 : amount);
+            Destroy(gameObject);
+        }
     }
 }
