@@ -1,6 +1,8 @@
 using System.Collections;
 using UnityEngine;
 
+namespace StuartH
+{
 
     /// <summary>
     ///CanvasGroupBase - base class for UI window controllers
@@ -34,6 +36,7 @@ using UnityEngine;
                     }
                 }
             }
+
             canvasGroup.interactable = true;
             canvasGroup.blocksRaycasts = true;
         }
@@ -59,6 +62,7 @@ using UnityEngine;
                     cor = null;
                 }
             }
+
             canvasGroup.interactable = false;
             canvasGroup.blocksRaycasts = false;
         }
@@ -71,7 +75,8 @@ using UnityEngine;
                 canvasGroup.alpha = Mathf.Lerp(start, end, normalizedTime);
                 yield return null;
             }
+
             canvasGroup.alpha = end;
         }
     }
-
+}

@@ -2,17 +2,23 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-/// <summary>
-///TurnTrigger - Handles triggering of events for turning
-/// </summary>
-public class TurnTrigger : MonoBehaviour
+
+namespace StuartH
 {
-    private bool triggered = false;
-    private void Awake()=>triggered = false;
-    private void OnEnable()=>triggered=false;
-    private void OnTriggerEnter(Collider other)
+    /// <summary>
+    ///TurnTrigger - Handles triggering of events for turning
+    /// </summary>
+    /// 
+    public class TurnTrigger : MonoBehaviour
     {
-        if (!other.TryGetComponent(out PlayerTurn player)) return;
-        player.TriggerTurnEvent();
+        private bool triggered = false;
+        private void Awake() => triggered = false;
+        private void OnEnable() => triggered = false;
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (!other.TryGetComponent(out PlayerTurn player)) return;
+            player.TriggerTurnEvent();
+        }
     }
 }

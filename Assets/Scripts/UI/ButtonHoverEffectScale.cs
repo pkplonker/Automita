@@ -4,6 +4,12 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+namespace StuartH
+{
+    
+    /// <summary>
+    ///ButtonHoverEffectScale - Use to tween scale for hover over buttons
+    /// </summary>
 public class ButtonHoverEffectScale : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private float scaleAmount = 1.1f;
@@ -22,4 +28,5 @@ public class ButtonHoverEffectScale : MonoBehaviour, IPointerEnterHandler, IPoin
     {
         transform.DOScale(Vector3.one, scaleDuration);
     }
+}
 }
