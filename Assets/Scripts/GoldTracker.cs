@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace StuartH
 {
@@ -12,9 +13,9 @@ namespace StuartH
     {
         private static int totalAmount;
         public static event Action<int> OnPickup;
-        [SerializeField] private Score score;
+        [FormerlySerializedAs("score")] [SerializeField] private Highscore highscore;
 
-        private void OnDestroy()=>score.gold = totalAmount;
+        private void OnDestroy()=>highscore.gold = totalAmount;
         
 
         public static void Pickup(int amount)

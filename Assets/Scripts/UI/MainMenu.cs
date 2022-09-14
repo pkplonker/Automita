@@ -8,10 +8,16 @@ namespace StuartH
     /// <summary>
     ///MainMenu - Main menu UI control
     /// </summary>
-    public class MainMenu : MonoBehaviour
+    public class MainMenu : CanvasGroupBase
     {
+        [SerializeField] private HighscoresUI highscoresUI;
         public void NewGame() => SceneManager.LoadScene(2);
 
+        public void Highscores()
+        {
+            Hide();
+            highscoresUI.Show(0.2f);
+        }
         public static void Quit()
         {
 #if UNITY_EDITOR
@@ -21,5 +27,9 @@ namespace StuartH
 			Application.Quit();
 #endif
         }
+
+        public void Show(float v=0f) => ShowUI(v);
+        public void Hide(float v=0f) => HideUI(v);
+
     }
 }

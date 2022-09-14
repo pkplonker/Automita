@@ -1139,4 +1139,5 @@ MonoBehaviour:
   mainMenuIndex: 1
   gameIndex: 2
   scoreText: {fileID: 516991449}
-  score: {fileID: 11400000, guid: dce9345fd1ccdb9498c40643f8b25580, type: 2}
+  highscore: {fileID: 11400000, guid: dce9345fd1ccdb9498c40643f8b25580, type: 2}
+  scores: {fileID: 11400000, guid: 974b6149ff9e4cc499e0b8782c71d78f, type: 2}
