@@ -14,6 +14,7 @@ namespace StuartH
         [SerializeField] private PlayerMovement player;
         [SerializeField] private Image image;
         [SerializeField] private List<Sprite> countDownSprites;
+        public static event Action OnGameStart;
         private int index = 0;
 
         private void Awake()
@@ -30,7 +31,8 @@ namespace StuartH
         {
             if (index == 0)
             {
-                player.SetEnabled(true);
+                OnGameStart?.Invoke();
+                //player.SetEnabled(true);
                 Destroy(gameObject);
                 return;
             }

@@ -19,6 +19,9 @@ namespace StuartH
         private void Awake() => characterController = GetComponent<CharacterController>();
         public float GetSpeed() => moveSpeed;
 
+        private void OnEnable() => CountDown.OnGameStart += OnGameStart;
+
+        private void OnGameStart() => SetEnabled(true);
         public void SetSpeed(float s)
         {
             moveSpeed = s;
