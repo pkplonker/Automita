@@ -2436,9 +2436,9 @@ MonoBehaviour:
   player: {fileID: 108562472}
   image: {fileID: 532390526}
   countDownSprites:
-  - {fileID: 21300000, guid: 8228f4d7e51209545afb26949a235668, type: 3}
-  - {fileID: 21300000, guid: 53998e993dc1bd844a2dd58df9c22ca1, type: 3}
-  - {fileID: 21300000, guid: 2aa442603d3dc27499a91086f3481fae, type: 3}
+  - {fileID: 21300000, guid: 605720bb3b985b74d819374d7310486a, type: 3}
+  - {fileID: 21300000, guid: 9ba7cc22d85f31f4ea6a4bae1283b2e6, type: 3}
+  - {fileID: 21300000, guid: 6fa4becc6e197a44b80bc4aacdcd8aa2, type: 3}
 --- !u!222 &2120849171
 CanvasRenderer:
   m_ObjectHideFlags: 0
