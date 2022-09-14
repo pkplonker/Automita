@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using StuartH;
+using TMPro;
 
 public class StopWatch : MonoBehaviour
 {
     // Variables
     bool timerActive = false;
     float currentTime;
-    public Text currentTimeText;
-    
-    
-    // Starts the timer at the beginning of the game
-    void Start()
+    public TextMeshProUGUI currentTimeText;
+
+    private void OnEnable() => CountDown.OnGameStart += StartTimer;
+    private void OnDisable() => CountDown.OnGameStart -= StartTimer;
+
+    public void StartTimer()
     {
         timerActive = true;
         currentTime = 0;
