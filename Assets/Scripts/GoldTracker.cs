@@ -12,6 +12,9 @@ namespace StuartH
     {
         private static int totalAmount;
         public static event Action<int> OnPickup;
+        [SerializeField] private Score score;
+
+        private void OnDestroy()=>score.gold = totalAmount;
         
 
         public static void Pickup(int amount)

@@ -1259,6 +1259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af22dd5d9d3bcb44382acd2ee0a20954, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: {fileID: 11400000, guid: dce9345fd1ccdb9498c40643f8b25580, type: 2}
 --- !u!4 &882652835
 Transform:
   m_ObjectHideFlags: 0
@@ -1387,6 +1388,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTimeText: {fileID: 940405343}
+  score: {fileID: 11400000, guid: dce9345fd1ccdb9498c40643f8b25580, type: 2}
 --- !u!114 &940405343
 MonoBehaviour:
   m_ObjectHideFlags: 0
