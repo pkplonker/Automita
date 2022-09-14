@@ -5,14 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField] private int mainMenuIndex = 1;
+       [SerializeField] private int gameIndex = 2;
+
    public void TryAgain  () {
 
-       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+       SceneManager.LoadScene(gameIndex);
    }
    
    public void Menu  () {
 
-       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+       SceneManager.LoadScene(mainMenuIndex);
    }
     
 }
