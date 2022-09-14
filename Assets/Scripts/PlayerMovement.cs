@@ -14,14 +14,20 @@ namespace StuartH
         [SerializeField] private float panSpeed = 1.5f;
         [SerializeField] private bool isActive = true;
         [SerializeField] private float maxMoveAmount = 100f;
+
         private CharacterController characterController;
         public event Action<float> SpeedChange;
         private void Awake() => characterController = GetComponent<CharacterController>();
         public float GetSpeed() => moveSpeed;
 
+
+        [SerializeField] private float JumpVelocity = 0.0f;
+        [SerializeField] private float mGravity = 19.2f;
+
         private void OnEnable() => CountDown.OnGameStart += OnGameStart;
 
         private void OnGameStart() => SetEnabled(true);
+
         public void SetSpeed(float s)
         {
             moveSpeed = s;
@@ -34,7 +40,26 @@ namespace StuartH
             var move = transform.forward * moveSpeed;
             if (Input.GetKey(KeyCode.A)) move -= transform.right * panSpeed;
             if (Input.GetKey(KeyCode.D)) move += transform.right * panSpeed;
+
+            if (characterController.isGrounded)
+            {
+                JumpVelocity = -0.5f;
+
+                if (Input.GetKey(KeyCode.Space))
+                {
+                    JumpVelocity = moveSpeed * 0.75f;
+                }
+            }
+            else
+            {
+                JumpVelocity -= mGravity * Time.deltaTime;
+            }
+            move += transform.up * JumpVelocity;
+
+
             characterController.Move(Time.deltaTime * move);
+
+
         }
 
         public void SetEnabled(bool b) => isActive = b;
