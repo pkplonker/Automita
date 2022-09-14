@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StuartTest.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Game Over Scene.unity
+    guid: d8c8ec431e86b8941969e57653b778b7
   m_configObjects: {}
