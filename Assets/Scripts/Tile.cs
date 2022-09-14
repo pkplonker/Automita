@@ -13,7 +13,6 @@ namespace StuartH
 
         private void OnTriggerExit(Collider other)
         {
-            Debug.Log("on exit");
             if (!other.TryGetComponent(out PlayerMovement player)) return;
             if (deleteCallback == null)
             {
