@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,7 +17,7 @@ namespace StuartH
         [SerializeField] private List<Sprite> countDownSprites;
         public static event Action OnGameStart;
         private int index = 0;
-
+        [SerializeField] private Ease easeType;
         private void Awake()
         {
             if (player == null) player = FindObjectOfType<PlayerMovement>();
@@ -38,6 +39,8 @@ namespace StuartH
             }
 
             index--;
+            transform.localScale = Vector3.zero;
+            transform.DOScale(Vector3.one , 0.3f).SetEase(easeType);
             image.sprite = countDownSprites[index];
         }
 
