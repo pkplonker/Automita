@@ -44,5 +44,15 @@ namespace StuartH
             image.sprite = countDownSprites[index];
         }
 
+        public void Show()
+        {
+            if (image != null) image.enabled = true;
+        }
+        
+        public void Hide()
+        {            if (image != null) image.enabled = false;
+
+        }
+        
     }
 }

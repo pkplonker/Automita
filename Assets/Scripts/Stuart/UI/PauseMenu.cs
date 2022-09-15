@@ -8,6 +8,7 @@ namespace StuartH
     /// </summary>
     public class PauseMenu : CanvasGroupBase
     {
+        [SerializeField] private CountDown countDown;
         private bool isActive;
 
         private void Awake() => SetInactive(0);
@@ -21,6 +22,7 @@ namespace StuartH
 
         private void SetActive(float fade)
         {
+            countDown.Hide();
             isActive = true;
             ShowUI(fade);
             Time.timeScale = 0f;
@@ -28,6 +30,8 @@ namespace StuartH
 
         private void SetInactive(float fade)
         {
+            countDown.Show();
+
             isActive = false;
             HideUI(fade);
             Time.timeScale = 1f;
