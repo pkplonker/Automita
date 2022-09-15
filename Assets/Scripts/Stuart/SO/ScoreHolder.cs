@@ -14,12 +14,12 @@ namespace StuartH
    public class ScoreHolder : ScriptableObject
    {
       public ScoreSaveData currentScore;
-      public List<ScoreSaveData> scores;
+      public ScoreSaveDataList scores;
 
       public ScoreSaveData AddScore()
       {
          var ns = new ScoreSaveData(currentScore);
-         scores.Add(ns);
+         scores.scores.Add(ns);
          return ns;
       }
       
@@ -27,17 +27,16 @@ namespace StuartH
       public ScoreSaveData GetTopScore()
       {
          OrderScores();
-         return scores[0];
-
+         return scores.scores[0];
       }
 
       public List<ScoreSaveData> GetTopScores(int amount)
       {
          OrderScores();
          var topScores = new List<ScoreSaveData>();
-         for (var i = 0; i < amount && i < scores.Count; i++)
+         for (var i = 0; i < amount && i < scores.scores.Count; i++)
          {
-            topScores.Add(scores[i]);
+            topScores.Add(scores.scores[i]);
          }
 
          return topScores;
@@ -45,21 +44,23 @@ namespace StuartH
 
       public void OrderScores()
       {
-         scores.RemoveAll(p => p == null);
-         scores = scores.OrderByDescending(o => o.GetTotalScore()).ToList();
+         scores.scores.RemoveAll(p => p == null);
+         scores.scores = scores.scores.OrderByDescending(o => o.GetTotalScore()).ToList();
       }
 
       public int GetRank(ScoreSaveData highscore)
       {
          if (highscore == null) return -1;
          OrderScores();
-         return scores.FindIndex(x => x ==highscore) + 1;
+         return scores.scores.FindIndex(x => x ==highscore) + 1;
       }
 
       public void LoadScores(ScoreSaveDataList savedScores)
       {
-         scores.Clear();
-         scores = savedScores.scores;
+         scores.scores.Clear();
+         scores.scores = savedScores.scores;
+         Debug.Log("Loaded scores");
+
       }
       
       [Serializable]
@@ -91,7 +92,6 @@ namespace StuartH
       public class ScoreSaveDataList
       {
          public List<ScoreSaveData> scores = new List<ScoreSaveData>();
-	
       }
 
       public void ClearCurrent()

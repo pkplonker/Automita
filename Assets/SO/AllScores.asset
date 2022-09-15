@@ -15,4 +15,5 @@ MonoBehaviour:
   currentScore:
     gold: 0
     time: 0
-  scores: []
+  scores:
+    scores: []
