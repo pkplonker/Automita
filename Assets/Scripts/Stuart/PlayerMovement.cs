@@ -22,7 +22,8 @@ namespace StuartH
         public float GetSpeed() => moveSpeed;
 
 
-        [SerializeField] private float JumpVelocity = 0.0f;
+        public float JumpVelocity = 0.0f; //made it public to access for animation
+        [SerializeField] private float jumpForce;
         [SerializeField] private float mGravity = 19.2f;
         
         [SerializeField] private float mCrouchedHeight = 1.0f;
@@ -65,7 +66,7 @@ namespace StuartH
 
                 if (Input.GetKey(KeyCode.Space))
                 {
-                    JumpVelocity = moveSpeed * 0.75f;
+                    JumpVelocity = moveSpeed * jumpForce;
                 }
             }
             else
@@ -80,6 +81,10 @@ namespace StuartH
             characterController.Move(Time.deltaTime * move);
 
 
+            if(DeathCheck.isDead)
+            {
+                isActive = false;
+            }
         }
 
         public void SetEnabled(bool b) => isActive = b;

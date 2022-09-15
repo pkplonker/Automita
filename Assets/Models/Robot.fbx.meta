@@ -15,6 +15,9 @@ ModelImporter:
   - first:
       74: 5404347575020875500
     second: Armature|Wave
+  - first:
+      74: 3800721468275536773
+    second: Armature|Walk (1)
   externalObjects: {}
   materials:
     materialImportMode: 1
