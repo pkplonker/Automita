@@ -43,18 +43,17 @@ namespace StuartH
         {
             CreateDirections();
             currentDirection = directions[(int)compass];
+            
+
             SpawnNext(straightPieces[0]);
             SpawnNext(straightPieces[0]);
 
-            spawnedPieceTypes.Enqueue(PieceType.Straight);
             for (var i = 0; i < startStraightPieces - 2; i++)
             {
-                spawnedPieceTypes.Enqueue(PieceType.Straight);
                 SpawnNext(straightPieces[Random.Range(0, straightPieces.Count)]);
             }
-            spawnedPieceTypes.Enqueue(PieceType.Left);
             SpawnNext(leftPieces[Random.Range(0, leftPieces.Count)]);
-            for (var i = 0; i < startPieces - startStraightPieces - 3; i++)
+            for (var i = 0; i < startPieces - startStraightPieces - 1; i++)
             {
                 SpawnNext();
             }
@@ -71,6 +70,7 @@ namespace StuartH
 
         private void SpawnNext(GameObject requestedPrefab = null)
         {
+            Debug.Log(spawnedPieces.Count + ":" + spawnedPieceTypes.Count);
             while (true)
             {
                 GameObject spawnedObject = null;
