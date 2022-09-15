@@ -1980,7 +1980,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   straightPieces:
-  - {fileID: 1078843296747018191, guid: 8a318fa0d7a0f574595b74db44b2d91a, type: 3}
+  - {fileID: 6047237153088851776, guid: 87b148fdfc86d0b4e87af048b20821aa, type: 3}
+  - {fileID: 6240679565370367062, guid: 8dab3c9e2ebbae545ac2af8f0c5e386f, type: 3}
+  - {fileID: 4318755780347497106, guid: d44b9cb62826a3e4995522f6fad080ec, type: 3}
   leftPieces:
   - {fileID: 4124018267751461818, guid: 2012e75094634ed488e81490320cb094, type: 3}
   rightPieces:

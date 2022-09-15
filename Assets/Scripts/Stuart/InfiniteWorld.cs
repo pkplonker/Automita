@@ -18,7 +18,7 @@ namespace StuartH
         [SerializeField] private PlayerMovement player;
         [SerializeField] private bool isEnabled = true;
         [Range(0, 20)] [SerializeField] private int maxSpawnedPieces = 10;
-        [Range(0, 10)] [SerializeField] private int startPieces = 4;
+        [Range(2, 10)] [SerializeField] private int startPieces = 4;
         [Range(0, 20)] [SerializeField] private int tileSize = 5;
         [Range(0f, 1f)] [SerializeField] private float cornerChance = 0.1f;
         [Range(0f, 1f)] [SerializeField] private float minCornerAmount = 0.15f;
@@ -44,8 +44,10 @@ namespace StuartH
             CreateDirections();
             currentDirection = directions[(int)compass];
             SpawnNext(straightPieces[0]);
+            SpawnNext(straightPieces[0]);
+
             spawnedPieceTypes.Enqueue(PieceType.Straight);
-            for (var i = 0; i < startPieces - 1; i++)
+            for (var i = 0; i < startPieces - 2; i++)
             {
                 spawnedPieceTypes.Enqueue(PieceType.Straight);
                 SpawnNext(straightPieces[Random.Range(0, straightPieces.Count)]);
