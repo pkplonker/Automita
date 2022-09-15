@@ -270,8 +270,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 114, y: -119}
-  m_SizeDelta: {x: 531.0762, y: 630.35284}
+  m_AnchoredPosition: {x: 141, y: -122}
+  m_SizeDelta: {x: 742.6697, y: 630.35284}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &321635157
 MonoBehaviour:
@@ -305,23 +305,25 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.09
-  m_Text: 'Stuart
+  m_Text: 'Stuart Heath
 
-    Daniel
+    Daniel Thomson
 
-    Paul
+    Paul Elder
 
-    Hyeontae
+    Hyeontae An (Leo)
 
     Michal
+    Bressa
 
-    Aleksandra
+    Aleksandra Zatorska
 
-    Joe
+    Joe Walton
 
-    Mohapi
+    Mohapi Masoeu
 
     Akhilesh
+    Luchmun
 
 
 
