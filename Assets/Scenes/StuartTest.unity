@@ -1984,9 +1984,9 @@ MonoBehaviour:
   - {fileID: 6240679565370367062, guid: 8dab3c9e2ebbae545ac2af8f0c5e386f, type: 3}
   - {fileID: 4318755780347497106, guid: d44b9cb62826a3e4995522f6fad080ec, type: 3}
   leftPieces:
-  - {fileID: 4124018267751461818, guid: 2012e75094634ed488e81490320cb094, type: 3}
+  - {fileID: 8205076132377593080, guid: 5c2304b398ae09441912a1d4405ad19a, type: 3}
   rightPieces:
-  - {fileID: 4173495788022938965, guid: 96883a9e0d0ab874da2e7e2e2170e6ef, type: 3}
+  - {fileID: 8205076132377593080, guid: ebed3db07a29c5742aacd7cf1f06ac9b, type: 3}
   player: {fileID: 108562472}
   isEnabled: 1
   maxSpawnedPieces: 4
