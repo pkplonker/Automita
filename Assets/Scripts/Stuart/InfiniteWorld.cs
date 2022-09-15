@@ -77,69 +77,51 @@ namespace StuartH
                         continue;
                     }
                 }
-Debug.Log("Spawning piece type: " + pieceType);
-var arr = spawnedPieceTypes.ToArray();
-if (arr.Length > 1)
-{
-    Debug.Log("Previous piece type: " + arr[arr.Length - 1]);
-}
-Debug.Log("Current direction: "+ compass);
-if (pieceType == PieceType.Straight)
-{ 
-}
-
-/*
-                if (pieceType == PieceType.Straight)
-                {
-                    if (currentDirection == directions[(int)Compass.West])
-                    {
-                        if (arr[arr.Length - 1] == PieceType.Left)
-                        {
-                            compass = Compass.South;
-
-                        }else if (arr[arr.Length - 1] == PieceType.Right)
-                        {
-                            compass = Compass.North;
-                        }
-                    }else if (currentDirection == directions[(int)Compass.East])
-                    {
-                        if (arr[arr.Length - 1] == PieceType.Left)
-                        {
-                            compass = Compass.North;
-
-                        }else if (arr[arr.Length - 1] == PieceType.Right)
-                        {
-                            compass = Compass.South;
-                        }
-
-                    }
-
-                }*/else if (pieceType == PieceType.Left)
-                {
-                    compass -= 1;
-                    if (compass < Compass.North) compass = Compass.West;
-                }
-                else
-                {
-                    compass += 1;
-                    if (compass > Compass.West) compass = Compass.North;
-                }
-                currentDirection = directions[(int)compass];
-                Debug.Log("New direction: "+ compass);
-
-
                 
-                
-                spawnedPieceTypes.Enqueue(pieceType);
-                spawnedObject = Instantiate(requestedPrefab, currentPosition, Quaternion.Euler(0, 90 * (int)compass, 0),
-                    transform);
-                spawnedObject.GetComponent<Tile>().Init(DeleteCallback);
-                currentPosition += currentDirection;
-                spawnedPieces.Enqueue(spawnedObject);
-                if (spawnedPieces.Count > maxSpawnedPieces) Destroy(spawnedPieces.Dequeue());
+
+                CalculateDirection(pieceType);
+                SpawnPiece(requestedPrefab, pieceType);
+                DespawnOldPiece();
                 break;
                 
             }
+        }
+
+        private void DespawnOldPiece()
+        {
+            if (spawnedPieces.Count > maxSpawnedPieces) Destroy(spawnedPieces.Dequeue());
+        }
+
+        private void SpawnPiece(GameObject requestedPrefab, PieceType pieceType)
+        {
+            GameObject spawnedObject;
+            spawnedPieceTypes.Enqueue(pieceType);
+            spawnedObject = Instantiate(requestedPrefab, currentPosition, Quaternion.Euler(0, 90 * (int)compass, 0),
+                transform);
+            spawnedObject.GetComponent<Tile>().Init(DeleteCallback);
+            currentPosition += currentDirection;
+            spawnedPieces.Enqueue(spawnedObject);
+        }
+
+        private void CalculateDirection(PieceType pieceType)
+        {
+            switch (pieceType)
+            {
+                case PieceType.Left:
+                {
+                    compass -= 1;
+                    if (compass < Compass.North) compass = Compass.West;
+                    break;
+                }
+                case PieceType.Right:
+                {
+                    compass += 1;
+                    if (compass > Compass.West) compass = Compass.North;
+                    break;
+                }
+            }
+
+            currentDirection = directions[(int)compass];
         }
 
         private void DeleteCallback(GameObject tile)
@@ -153,7 +135,7 @@ if (pieceType == PieceType.Straight)
         {
             GameObject go = null;
             if (!(Random.Range(0f, 1f) > 1f - cornerChance)) return straightPieces[Random.Range(0, straightPieces.Count)];
-            go = Random.Range(0, 1) > 0.5f ? leftPieces[Random.Range(0, leftPieces.Count)] : rightPieces[Random.Range(0, rightPieces.Count)];
+            go = Random.Range(0f, 1f) > 0.5f ? leftPieces[Random.Range(0, leftPieces.Count)] : rightPieces[Random.Range(0, rightPieces.Count)];
             return go;
         }
 
