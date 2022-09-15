@@ -14,8 +14,19 @@ namespace StuartH
         [SerializeField] private float panSpeed = 1.5f;
         [SerializeField] private bool isActive = true;
         [SerializeField] private float maxMoveAmount = 100f;
+        [Range(1f,100f)] [SerializeField] private float minSpeed = 5f;
+        [Range(1f,100f)][SerializeField] private float maxSpeed = 40f;
+        [Range(1f,10f)] [SerializeField] private float minPanSpeed = 1f;
+        [Range(1f,10f)][SerializeField] private float maxPanSpeed = 15;
+        public void SetEnabled(bool b) => isActive = b;
 
+        public float GetPlayerMinSpeed() => minSpeed;
+        public float GetPlayerMaxSpeed() => maxSpeed;
+        public float GetPlayerMinPanSpeed() => minPanSpeed;
+        public float GetPlayerMaxPanSpeed() => maxPanSpeed;
 
+        public float GetPanSpeed() => panSpeed;
+        public void SetPanSpeed(float f) => panSpeed = f;
         private CharacterController characterController;
         public event Action<float> SpeedChange;
         private void Awake() => characterController = GetComponent<CharacterController>();
@@ -87,6 +98,7 @@ namespace StuartH
             }
         }
 
-        public void SetEnabled(bool b) => isActive = b;
+
+     
     }
 }

@@ -20,7 +20,9 @@ namespace StuartH
         [Range(0, 20)] [SerializeField] private int maxSpawnedPieces = 10;
         [Range(0, 10)] [SerializeField] private int startPieces = 4;
         [Range(0, 20)] [SerializeField] private int tileSize = 5;
-        [Range(0, 1)] [SerializeField] private float cornerChance = 0.1f;
+        [Range(0f, 1f)] [SerializeField] private float cornerChance = 0.1f;
+        [Range(0f, 1f)] [SerializeField] private float minCornerAmount = 0.15f;
+        [Range(0f, 1f)] [SerializeField] private float maxCornerAmount = 0.9f;
 
         private Queue<GameObject> spawnedPieces = new Queue<GameObject>();
         private Queue<PieceType> spawnedPieceTypes = new Queue<PieceType>();
@@ -30,6 +32,13 @@ namespace StuartH
         private Vector3 currentDirection;
         private List<Vector3> directions = new List<Vector3>();
 
+        
+        
+        public void SetCornerRate(float v) => cornerChance = v;
+
+        public float GetMinCornerAmount() => minCornerAmount;
+
+        public float GetMaxCornerAmount() => maxCornerAmount;
         protected void Awake()
         {
             CreateDirections();
@@ -153,5 +162,7 @@ namespace StuartH
             Left,
             Right
         }
+
+
     }
 }

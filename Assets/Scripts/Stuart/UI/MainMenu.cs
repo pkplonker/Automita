@@ -17,17 +17,16 @@ namespace StuartH
         [SerializeField] private HighscoresUI highscoresUI;
         public void NewGame() => SceneManager.LoadScene(2);
 
-        private void Awake()
-        {
-            SCOREHOLDER = scoreHolder;
-        }
+        private void Awake()=>SCOREHOLDER = scoreHolder;
+        
 
         public void Highscores()
         {
             Hide();
             highscoresUI.Show(0.2f);
         }
-
+        public void Show(float v=0f) => ShowUI(v);
+        public void Hide(float v=0f) => HideUI(v);
         public void QuitUI() => Quit();
         public static void Quit()
         {
@@ -41,8 +40,7 @@ namespace StuartH
 #endif
         }
 
-        public void Show(float v=0f) => ShowUI(v);
-        public void Hide(float v=0f) => HideUI(v);
+  
 
     }
 }
