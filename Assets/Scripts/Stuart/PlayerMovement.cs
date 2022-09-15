@@ -29,6 +29,8 @@ namespace StuartH
         public void SetPanSpeed(float f) => panSpeed = f;
         private CharacterController characterController;
         public event Action<float> SpeedChange;
+        public event Action OnDeath;
+
         private void Awake() => characterController = GetComponent<CharacterController>();
         public float GetSpeed() => moveSpeed;
 
@@ -104,7 +106,7 @@ namespace StuartH
         private void HandleGameOver()
         {
             isActive = false;
-            StopWatch.Stop();
+            OnDeath?.Invoke();
         }
     }
 }

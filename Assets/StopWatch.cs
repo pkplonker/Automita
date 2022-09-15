@@ -9,17 +9,35 @@ using TMPro;
 public class StopWatch : MonoBehaviour
 {
     // Variables
-    bool timerActive = false;
+   static bool timerActive = false;
     static float currentTime;
     public TextMeshProUGUI currentTimeText;
     [SerializeField] private ScoreHolder highscore;
-
+    private PlayerMovement player;
     private void OnDestroy()=>highscore.currentScore.time = currentTime;
-    private void OnEnable() => CountDown.OnGameStart += StartTimer;
-    private void OnDisable() => CountDown.OnGameStart -= StartTimer;
+
+    private void OnEnable()
+    {CountDown.OnGameStart += StartTimer;
+        player.OnDeath += Stop;
+    }
+
+    private void Stop() => timerActive = false;
+
+    private void OnDisable()
+    {
+        player.OnDeath -= Stop;
+        CountDown.OnGameStart -= StartTimer;
+    } 
     public static float GetCurrentTime() => currentTime;
 
-    private void Awake() => currentTime = 0;
+
+
+
+    private void Awake()
+    {
+        player = FindObjectOfType<PlayerMovement>();
+        currentTime = 0;
+    } 
 
     public void StartTimer()
     {
@@ -37,8 +55,5 @@ public class StopWatch : MonoBehaviour
         currentTimeText.text = time.ToString(@"mm\:ss\:ff");
     }
 
-    public static void Stop()
-    {
-        throw new NotImplementedException();
-    }
+   
 }
