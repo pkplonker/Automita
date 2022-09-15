@@ -18,7 +18,7 @@ namespace StuartH
 		[SerializeField] private TextMeshProUGUI coinText;
 		[SerializeField] private TextMeshProUGUI totalScoreText;
 
-		public void UpdateScore(Highscore highscore, int rank)
+		public void UpdateScore(ScoreHolder.ScoreSaveData highscore, int rank)
 		{
 			if (highscore == null) return;
 			rankText.text = "#" + rank + 1;

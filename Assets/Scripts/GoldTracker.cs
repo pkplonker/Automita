@@ -13,9 +13,9 @@ namespace StuartH
     {
         private static int totalAmount;
         public static event Action<int> OnPickup;
-        [FormerlySerializedAs("score")] [SerializeField] private Highscore highscore;
+        [FormerlySerializedAs("score")] [SerializeField] private ScoreHolder highscore;
 
-        private void OnDestroy()=>highscore.gold = totalAmount;
+        private void OnDestroy()=>highscore.currentScore.gold = totalAmount;
         
 
         public static void Pickup(int amount)

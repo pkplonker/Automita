@@ -12,9 +12,9 @@ public class StopWatch : MonoBehaviour
     bool timerActive = false;
     float currentTime;
     public TextMeshProUGUI currentTimeText;
-    [SerializeField] private Highscore highscore;
+    [SerializeField] private ScoreHolder highscore;
 
-    private void OnDestroy()=>highscore.time = currentTime;
+    private void OnDestroy()=>highscore.currentScore.time = currentTime;
     private void OnEnable() => CountDown.OnGameStart += StartTimer;
     private void OnDisable() => CountDown.OnGameStart -= StartTimer;
 
