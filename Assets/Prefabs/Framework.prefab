@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 2471550204519173642}
   - component: {fileID: 1577225540210246063}
   - component: {fileID: 3605018305111733605}
+  - component: {fileID: 2444750528784047393}
   m_Layer: 0
   m_Name: Framework
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,3 +80,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &2444750528784047393
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2956443265426560176}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9384175, y: 0.5996303, z: 0.9324101}
+  m_Center: {x: 0.002210319, y: 0.2998651, z: 0.00016583502}

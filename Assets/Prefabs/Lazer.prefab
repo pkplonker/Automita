@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 192736422993064594}
   - component: {fileID: 4903043321953604360}
   - component: {fileID: 4301118630524718769}
+  - component: {fileID: 1162272466849951410}
   m_Layer: 0
   m_Name: pCube5.001
   m_TagString: Untagged
@@ -79,6 +80,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &1162272466849951410
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2629579889619244003}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5005945, y: 0.74293447, z: 0.74294335}
+  m_Center: {x: 0.10680932, y: 0.38124132, z: -0.013982445}
 --- !u!1 &7279828710518091172
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,9 +104,10 @@ GameObject:
   - component: {fileID: 7947996860443965214}
   - component: {fileID: 6477071943091730619}
   - component: {fileID: 9081466679962193009}
+  - component: {fileID: 4133714824237417108}
   m_Layer: 0
   m_Name: Lazer
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -159,3 +174,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!135 &4133714824237417108
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7279828710518091172}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.25640035
+  m_Center: {x: -0.058238268, y: 0.40747982, z: -0.01212582}
