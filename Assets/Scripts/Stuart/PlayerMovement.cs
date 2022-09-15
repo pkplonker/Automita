@@ -60,6 +60,7 @@ namespace StuartH
             if (Input.GetKey(KeyCode.A)) move -= transform.right * panSpeed;
             if (Input.GetKey(KeyCode.D)) move += transform.right * panSpeed;
 
+            
 
             if (Input.GetKey(KeyCode.C))
             {
