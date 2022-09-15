@@ -43,6 +43,8 @@ namespace StuartH
 
         private void OnEnable() => CountDown.OnGameStart += OnGameStart;
 
+        private void OnDisable()=> CountDown.OnGameStart -=OnGameStart;
+
         private void OnGameStart() => SetEnabled(true);
 
         public void SetSpeed(float s)
@@ -95,11 +97,14 @@ namespace StuartH
 
             if(DeathCheck.isDead)
             {
-                isActive = false;
+                HandleGameOver();
             }
         }
 
-
-     
+        private void HandleGameOver()
+        {
+            isActive = false;
+            StopWatch.Stop();
+        }
     }
 }

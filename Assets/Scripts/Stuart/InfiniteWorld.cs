@@ -84,7 +84,6 @@ namespace StuartH
                          spawnedPieceTypesArr[spawnedPieceTypesArr.Length - 2] == pieceType))
                     {
                         requestedPrefab = null;
-                        Debug.Log("Rerolling");
                         continue;
                     }
                 }

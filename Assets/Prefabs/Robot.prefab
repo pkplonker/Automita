@@ -616,8 +616,12 @@ MonoBehaviour:
   panSpeed: 3
   isActive: 1
   maxMoveAmount: 50
+  minSpeed: 5
+  maxSpeed: 40
+  minPanSpeed: 2
+  maxPanSpeed: 8
   JumpVelocity: 0
-  jumpForce: 2
+  jumpForce: 1
   mGravity: 19.2
   mCrouchedHeight: 1
   mStandingHeight: 2

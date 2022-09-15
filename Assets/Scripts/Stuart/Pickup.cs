@@ -16,7 +16,6 @@ namespace StuartH
 
         private void OnTriggerEnter(Collider other)
         {
-            Debug.Log("picked up");
             GoldTracker.Pickup(amount <= 0 ? 1 : amount);
             Destroy(gameObject);
         }

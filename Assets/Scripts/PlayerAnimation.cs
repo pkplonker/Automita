@@ -7,9 +7,21 @@ public class PlayerAnimation : MonoBehaviour
 {
     [SerializeField] Animator anim;
     [SerializeField] PlayerMovement playerMovement;
+    private void OnEnable() => CountDown.OnGameStart += OnGameStart;
+
+    private void OnDisable()=> CountDown.OnGameStart -=OnGameStart;
+
+    private void OnGameStart() => SetEnabled(true);
+
+    private void SetEnabled(bool b)
+    {
+        anim.SetBool("isWalking", true);
+    }
 
     void Start()
     {
+        anim.SetBool("isWalking", false);
+
         anim.SetBool("isDead", false);
         anim.SetBool("isJumping", false);
     }

@@ -36,4 +36,9 @@ public class StopWatch : MonoBehaviour
         TimeSpan time = TimeSpan.FromSeconds(currentTime);
         currentTimeText.text = time.ToString(@"mm\:ss\:ff");
     }
+
+    public static void Stop()
+    {
+        throw new NotImplementedException();
+    }
 }
