@@ -79,7 +79,9 @@ namespace StuartH
             gold = s.gold;
             time = s.time;
          }
-         public int GetTotalScore() => (int) time * (gold / 4);
+
+         public int GetTotalScore()=>(int)(gold == 0 ? (time *1f)/4f : (time *gold)/4f);
+         
 
          public void Clear()
          {

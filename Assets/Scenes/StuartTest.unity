@@ -239,6 +239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasGroup: {fileID: 0}
+  player: {fileID: 1304090681}
 --- !u!225 &164223919
 CanvasGroup:
   m_ObjectHideFlags: 0

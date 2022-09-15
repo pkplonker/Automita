@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,16 @@ namespace StuartH
     public class TurnUI : CanvasGroupBase
     {
         private PlayerTurn playerTurn;
+      [SerializeField]   private PlayerMovement player;
+
+       
+
+        private void OnEnable()=>player.OnDeath += HandlePlayerDeath;
+
+        private void OnDisable()=>player.OnDeath += HandlePlayerDeath;
+
+        private void HandlePlayerDeath()=>HideUI();
+        
 
         public void Show(PlayerTurn playerTurn)
         {
