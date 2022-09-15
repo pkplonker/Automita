@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -978,6 +978,7 @@ GameObject:
   - component: {fileID: 428328205}
   - component: {fileID: 428328204}
   - component: {fileID: 428328207}
+  - component: {fileID: 428328208}
   m_Layer: 5
   m_Name: Resume
   m_TagString: Untagged
@@ -1097,6 +1098,20 @@ CanvasRenderer:
   m_GameObject: {fileID: 428328202}
   m_CullTransparentMesh: 1
 --- !u!114 &428328207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 428328202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60fb1502b21e2b249bcba0122a782d4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleAmount: 1.1
+  scaleDuration: 0.2
+--- !u!114 &428328208
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1261,7 +1276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af22dd5d9d3bcb44382acd2ee0a20954, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highscore: {fileID: 11400000, guid: dce9345fd1ccdb9498c40643f8b25580, type: 2}
+  highscore: {fileID: 11400000, guid: 974b6149ff9e4cc499e0b8782c71d78f, type: 2}
 --- !u!4 &882652835
 Transform:
   m_ObjectHideFlags: 0
@@ -1390,7 +1405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTimeText: {fileID: 940405343}
-  highscore: {fileID: 11400000, guid: dce9345fd1ccdb9498c40643f8b25580, type: 2}
+  highscore: {fileID: 11400000, guid: 974b6149ff9e4cc499e0b8782c71d78f, type: 2}
 --- !u!114 &940405343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2734,6 +2749,7 @@ GameObject:
   - component: {fileID: 1990962922}
   - component: {fileID: 1990962921}
   - component: {fileID: 1990962924}
+  - component: {fileID: 1990962925}
   m_Layer: 5
   m_Name: Quit
   m_TagString: Untagged
@@ -2853,6 +2869,20 @@ CanvasRenderer:
   m_GameObject: {fileID: 1990962919}
   m_CullTransparentMesh: 1
 --- !u!114 &1990962924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1990962919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60fb1502b21e2b249bcba0122a782d4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleAmount: 1.1
+  scaleDuration: 0.2
+--- !u!114 &1990962925
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
