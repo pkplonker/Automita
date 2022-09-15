@@ -18,10 +18,10 @@ namespace StuartH
 		[SerializeField] private TextMeshProUGUI coinText;
 		[SerializeField] private TextMeshProUGUI totalScoreText;
 
-		public void UpdateScore(Highscore highscore, int rank)
+		public void UpdateScore(ScoreHolder.ScoreSaveData highscore, int rank)
 		{
 			if (highscore == null) return;
-			rankText.text = "#" + rank + 1;
+			rankText.text = "#" + (rank + 1);
 			TimeSpan time = TimeSpan.FromSeconds(highscore.time);
 			timeText.text = time.ToString("hh':'mm':'ss");
 			coinText.text = highscore.gold.ToString();
