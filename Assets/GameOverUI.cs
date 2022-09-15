@@ -15,14 +15,15 @@ public class GameOverUI : MonoBehaviour
 
     private void Awake()
     {
-        scores.AddScore();
-        var rank = scores.GetRank(scores.currentScore);
-        TimeSpan time = TimeSpan.FromSeconds(scores.currentScore.time);
+      var scoreData= scores.AddScore();
+        var rank = scores.GetRank(scoreData);
+        TimeSpan time = TimeSpan.FromSeconds(scoreData.time);
         scoreText.text = "You have ranked #" + rank + "\n";
         scoreText.text += "Time: " + time.ToString("hh':'mm':'ss");
-        scoreText.text += "\n"+"Gold: " + scores.currentScore.gold + "\n";
-        scoreText.text += "Final score: " + scores.currentScore.GetTotalScore();
+        scoreText.text += "\n"+"Gold: " + scoreData.gold + "\n";
+        scoreText.text += "Final score: " + scoreData.GetTotalScore();
         SaveFileHandler.Save(scores);
+        scores.ClearCurrent();
     }
 
     public void TryAgain() => SceneManager.LoadScene(gameIndex);

@@ -16,12 +16,13 @@ namespace StuartH
       public ScoreSaveData currentScore;
       public List<ScoreSaveData> scores;
 
-      public void AddScore()
+      public ScoreSaveData AddScore()
       {
          var ns = new ScoreSaveData(currentScore);
          scores.Add(ns);
-         currentScore.Clear();
+         return ns;
       }
+      
 
       public ScoreSaveData GetTopScore()
       {
@@ -32,6 +33,7 @@ namespace StuartH
 
       public List<ScoreSaveData> GetTopScores(int amount)
       {
+         OrderScores();
          var topScores = new List<ScoreSaveData>();
          for (var i = 0; i < amount && i < scores.Count; i++)
          {
@@ -44,14 +46,14 @@ namespace StuartH
       public void OrderScores()
       {
          scores.RemoveAll(p => p == null);
-         scores = scores.OrderBy(o => o.GetTotalScore()).ToList();
+         scores = scores.OrderByDescending(o => o.GetTotalScore()).ToList();
       }
 
       public int GetRank(ScoreSaveData highscore)
       {
          if (highscore == null) return -1;
          OrderScores();
-         return scores.FindIndex(x => highscore) + 1;
+         return scores.FindIndex(x => x ==highscore) + 1;
       }
 
       public void LoadScores(ScoreSaveDataList savedScores)
@@ -90,6 +92,11 @@ namespace StuartH
       {
          public List<ScoreSaveData> scores = new List<ScoreSaveData>();
 	
+      }
+
+      public void ClearCurrent()
+      {
+         currentScore.Clear();
       }
    }
 }
