@@ -18,14 +18,14 @@ public class Spikes : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        while (!hadPlayed)
+        while(!hadPlayed)
         {
-                    if (Vector3.Distance(gameObject.transform.position, player.position) < 5.0f)
-                    {
-                        // trigger spikes animation
-                        animator.SetBool("isTriggered", true);
-                        hadPlayed = true;
-                    }
+            if (Vector3.Distance(gameObject.transform.position, player.position) < 8.0f)
+            {
+                // trigger spikes animation
+                animator.SetBool("isTriggered", true);
+                hadPlayed = true;
+            }
         }
 
     }
