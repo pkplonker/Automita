@@ -1875,7 +1875,7 @@ MonoBehaviour:
   maxSpawnedPieces: 4
   startPieces: 4
   tileSize: 10
-  cornerChance: 0.2
+  cornerChance: 0.652
 --- !u!4 &1347610511
 Transform:
   m_ObjectHideFlags: 0

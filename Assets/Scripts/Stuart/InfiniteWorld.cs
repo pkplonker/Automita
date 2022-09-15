@@ -73,10 +73,63 @@ namespace StuartH
                          spawnedPieceTypesArr[spawnedPieceTypesArr.Length - 2] == pieceType))
                     {
                         requestedPrefab = null;
+                        Debug.Log("Rerolling");
                         continue;
                     }
                 }
+Debug.Log("Spawning piece type: " + pieceType);
+var arr = spawnedPieceTypes.ToArray();
+if (arr.Length > 1)
+{
+    Debug.Log("Previous piece type: " + arr[arr.Length - 1]);
+}
+Debug.Log("Current direction: "+ compass);
+if (pieceType == PieceType.Straight)
+{ 
+}
 
+/*
+                if (pieceType == PieceType.Straight)
+                {
+                    if (currentDirection == directions[(int)Compass.West])
+                    {
+                        if (arr[arr.Length - 1] == PieceType.Left)
+                        {
+                            compass = Compass.South;
+
+                        }else if (arr[arr.Length - 1] == PieceType.Right)
+                        {
+                            compass = Compass.North;
+                        }
+                    }else if (currentDirection == directions[(int)Compass.East])
+                    {
+                        if (arr[arr.Length - 1] == PieceType.Left)
+                        {
+                            compass = Compass.North;
+
+                        }else if (arr[arr.Length - 1] == PieceType.Right)
+                        {
+                            compass = Compass.South;
+                        }
+
+                    }
+
+                }*/else if (pieceType == PieceType.Left)
+                {
+                    compass -= 1;
+                    if (compass < Compass.North) compass = Compass.West;
+                }
+                else
+                {
+                    compass += 1;
+                    if (compass > Compass.West) compass = Compass.North;
+                }
+                currentDirection = directions[(int)compass];
+                Debug.Log("New direction: "+ compass);
+
+
+                
+                
                 spawnedPieceTypes.Enqueue(pieceType);
                 spawnedObject = Instantiate(requestedPrefab, currentPosition, Quaternion.Euler(0, 90 * (int)compass, 0),
                     transform);
@@ -85,6 +138,7 @@ namespace StuartH
                 spawnedPieces.Enqueue(spawnedObject);
                 if (spawnedPieces.Count > maxSpawnedPieces) Destroy(spawnedPieces.Dequeue());
                 break;
+                
             }
         }
 
@@ -98,23 +152,8 @@ namespace StuartH
         private GameObject DetermineNext()
         {
             GameObject go = null;
-            if (!(Random.Range(0f, 1f) > 1f - cornerChance))
-                return straightPieces[Random.Range(0, straightPieces.Count)];
-            if (Random.Range(0, 1) > 0.5f)
-            {
-                compass -= 1;
-                if (compass < Compass.North) compass = Compass.West;
-                currentDirection = directions[(int)compass];
-                go = leftPieces[Random.Range(0, leftPieces.Count)];
-            }
-            else
-            {
-                compass += 1;
-                if (compass > Compass.West) compass = Compass.North;
-                currentDirection = directions[(int)compass];
-                go = rightPieces[Random.Range(0, rightPieces.Count)];
-            }
-
+            if (!(Random.Range(0f, 1f) > 1f - cornerChance)) return straightPieces[Random.Range(0, straightPieces.Count)];
+            go = Random.Range(0, 1) > 0.5f ? leftPieces[Random.Range(0, leftPieces.Count)] : rightPieces[Random.Range(0, rightPieces.Count)];
             return go;
         }
 
