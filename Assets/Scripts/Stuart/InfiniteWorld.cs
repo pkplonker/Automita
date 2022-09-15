@@ -15,9 +15,7 @@ namespace StuartH
         [SerializeField] private List<GameObject> straightPieces;
         [SerializeField] private List<GameObject> leftPieces;
         [SerializeField] private List<GameObject> rightPieces;
-        [SerializeField] private PlayerMovement player;
-        [SerializeField] private bool isEnabled = true;
-        [Range(0, 20)] [SerializeField] private int maxSpawnedPieces = 10;
+       [Range(0, 20)] [SerializeField] private int maxSpawnedPieces = 10;
         [Range(2, 10)] [SerializeField] private int startPieces = 4;
         [Range(0, 20)] [SerializeField] private int tileSize = 5;
         [Range(0f, 1f)] [SerializeField] private float cornerChance = 0.1f;
@@ -70,12 +68,11 @@ namespace StuartH
                 GameObject spawnedObject = null;
                 if (requestedPrefab == null) requestedPrefab = DetermineNext();
                 PieceType pieceType;
-                if (straightPieces.Contains(requestedPrefab))
-                    pieceType = PieceType.Straight;
-                else if (leftPieces.Contains(requestedPrefab))
-                    pieceType = PieceType.Left;
-                else
-                    pieceType = PieceType.Right;
+                
+                if (straightPieces.Contains(requestedPrefab)) pieceType = PieceType.Straight;
+                else if (leftPieces.Contains(requestedPrefab)) pieceType = PieceType.Left;
+                else pieceType = PieceType.Right;
+                
                 var spawnedPieceTypesArr = spawnedPieceTypes.ToArray();
                 if (pieceType == PieceType.Left || pieceType == PieceType.Right)
                 {
@@ -87,8 +84,6 @@ namespace StuartH
                         continue;
                     }
                 }
-                
-
                 CalculateDirection(pieceType);
                 SpawnPiece(requestedPrefab, pieceType);
                 DespawnOldPiece();
@@ -143,6 +138,32 @@ namespace StuartH
 
         private GameObject DetermineNext()
         {
+            var spawnedPieceTypesArr = spawnedPieceTypes.ToArray();
+            if (spawnedPieceTypesArr.Length > 2 &&
+                (spawnedPieceTypesArr[spawnedPieceTypesArr.Length - 1] == PieceType.Left &&
+                 spawnedPieceTypesArr[spawnedPieceTypesArr.Length - 2] == PieceType.Left))
+            {
+                return straightPieces[Random.Range(0, straightPieces.Count)];
+            }
+            if (spawnedPieceTypesArr.Length > 2 &&
+                      (spawnedPieceTypesArr[spawnedPieceTypesArr.Length - 1] == PieceType.Right &&
+                       spawnedPieceTypesArr[spawnedPieceTypesArr.Length - 2] == PieceType.Right))
+            {
+                return straightPieces[Random.Range(0, straightPieces.Count)];
+
+            }
+            if (spawnedPieceTypesArr.Length > 3 &&
+                (spawnedPieceTypesArr[spawnedPieceTypesArr.Length - 2] == PieceType.Left &&
+                 spawnedPieceTypesArr[spawnedPieceTypesArr.Length - 3] == PieceType.Left))
+            {
+                return straightPieces[Random.Range(0, straightPieces.Count)];
+            }
+            if (spawnedPieceTypesArr.Length > 3 &&
+                (spawnedPieceTypesArr[spawnedPieceTypesArr.Length - 2] == PieceType.Right &&
+                 spawnedPieceTypesArr[spawnedPieceTypesArr.Length - 3] == PieceType.Right))
+            {
+                return straightPieces[Random.Range(0, straightPieces.Count)];
+            }
             GameObject go = null;
             if (!(Random.Range(0f, 1f) > 1f - cornerChance)) return straightPieces[Random.Range(0, straightPieces.Count)];
             go = Random.Range(0f, 1f) > 0.5f ? leftPieces[Random.Range(0, leftPieces.Count)] : rightPieces[Random.Range(0, rightPieces.Count)];
