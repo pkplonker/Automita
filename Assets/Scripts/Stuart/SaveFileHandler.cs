@@ -25,19 +25,21 @@ namespace StuartH
 
 		}
 
-		public static bool Load(ScoreHolder scoreHolder)
+		public static void Load(ScoreHolder scoreHolder)
 		{
 			Debug.Log("Trying to load from" + GetPathWithFile());
 			if (!Directory.Exists(GetPath()))
 			{
 				Debug.Log("failed to access dir");
-				return false;
+				return ;
 			}
+
+			if (!File.Exists(GetPathWithFile())) return ;
 			var x = File.ReadAllText(GetPathWithFile());
 			var sh = JsonUtility.FromJson<ScoreHolder.ScoreSaveDataList>(x);
 			scoreHolder.LoadScores(sh);
 			Debug.Log("Loaded file");
-			return true;
+			return ;
 		}
 	}
 
