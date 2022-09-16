@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -288,10 +288,10 @@ MonoBehaviour:
   rightPieces:
   - {fileID: 8205076132377593080, guid: ebed3db07a29c5742aacd7cf1f06ac9b, type: 3}
   maxSpawnedPieces: 8
-  startPieces: 8
+  startPieces: 7
   startStraightPieces: 4
   tileSize: 10
-  cornerChance: 0.9
+  cornerChance: 0.6
   minCornerAmount: 0.15
   maxCornerAmount: 0.9
 --- !u!4 &214211424
@@ -1984,7 +1984,7 @@ MonoBehaviour:
   rightPieces:
   - {fileID: 8205076132377593080, guid: ebed3db07a29c5742aacd7cf1f06ac9b, type: 3}
   maxSpawnedPieces: 8
-  startPieces: 8
+  startPieces: 7
   startStraightPieces: 4
   tileSize: 10
   cornerChance: 0.652
