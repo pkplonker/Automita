@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -265,7 +265,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 312662404}
   m_CullTransparentMesh: 1
---- !u!1 &463811034
+--- !u!1 &321635155
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -273,9 +273,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 463811035}
-  - component: {fileID: 463811037}
-  - component: {fileID: 463811036}
+  - component: {fileID: 321635156}
+  - component: {fileID: 321635158}
+  - component: {fileID: 321635157}
   m_Layer: 5
   m_Name: Names
   m_TagString: Untagged
@@ -283,14 +283,14 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &463811035
+--- !u!224 &321635156
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 463811034}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_GameObject: {fileID: 321635155}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.1283, y: 1.1283, z: 1.1283}
   m_Children: []
@@ -299,16 +299,16 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 114, y: -119}
-  m_SizeDelta: {x: 531.0762, y: 630.35284}
+  m_AnchoredPosition: {x: 0, y: -119}
+  m_SizeDelta: {x: 742.6697, y: 630.35284}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &463811036
+--- !u!114 &321635157
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 463811034}
+  m_GameObject: {fileID: 321635155}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
@@ -334,34 +334,36 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.09
-  m_Text: 'Stuart
+  m_Text: 'Stuart Heath
 
-    Daniel
+    Daniel Thomson
 
-    Paul
+    Paul Elder
 
-    Hyeontae
+    Hyeontae An (Leo)
 
     Michal
+    Bressa
 
-    Aleksandra
+    Aleksandra Zatorska
 
-    Joe
+    Joe Walton
 
-    Mohapi
+    Mohapi Masoeu
 
     Akhilesh
+    Luchmun
 
 
 
 '
---- !u!222 &463811037
+--- !u!222 &321635158
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 463811034}
+  m_GameObject: {fileID: 321635155}
   m_CullTransparentMesh: 0
 --- !u!1 &497039997
 GameObject:
@@ -1291,7 +1293,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 952977463}
-  - {fileID: 463811035}
+  - {fileID: 321635156}
   - {fileID: 1952391591}
   m_Father: {fileID: 1286215928}
   m_RootOrder: 2
