@@ -42,7 +42,6 @@ namespace StuartH
         [SerializeField] private float mCrouchedHeight = 1.0f;
         [SerializeField] private float mStandingHeight = 2.0f;
 
-
         private void OnEnable() => CountDown.OnGameStart += OnGameStart;
 
         private void OnDisable()=> CountDown.OnGameStart -=OnGameStart;
@@ -54,53 +53,25 @@ namespace StuartH
             moveSpeed = s;
             SpeedChange?.Invoke(moveSpeed);
         }
-
-      
-
+        
         private void Update()
         {
             if (!isActive) return;
             var move = transform.forward * moveSpeed;
             if (Input.GetKey(KeyCode.A)) move -= transform.right * panSpeed;
             if (Input.GetKey(KeyCode.D)) move += transform.right * panSpeed;
-
-            
-
-            if (Input.GetKey(KeyCode.C))
-            {
-                characterController.height = mCrouchedHeight;
-            }
-            else
-            {
-                characterController.height = mStandingHeight;
-            }
-
+            if (Input.GetKey(KeyCode.C)) characterController.height = mCrouchedHeight;
+            else characterController.height = mStandingHeight;
             //Jump
             if (characterController.isGrounded)
             {
                 JumpVelocity = -0.5f;
-
-                if (Input.GetKey(KeyCode.Space))
-                {
-                    JumpVelocity = 5 * jumpForce;
-                }
+                if (Input.GetKey(KeyCode.Space)) JumpVelocity = 5 * jumpForce;
             }
-            else
-            {
-                JumpVelocity -= mGravity * Time.deltaTime;
-            }
+            else JumpVelocity -= mGravity * Time.deltaTime;
             move += transform.up * JumpVelocity;
-
-        
-
-
             characterController.Move(Time.deltaTime * move);
-
-
-            if(DeathCheck.isDead)
-            {
-                HandleGameOver();
-            }
+            if(DeathCheck.isDead) HandleGameOver();
         }
 
         private void HandleGameOver()
