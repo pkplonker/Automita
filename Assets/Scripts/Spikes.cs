@@ -5,21 +5,30 @@ using UnityEngine;
 public class Spikes : MonoBehaviour
 {
     private Transform player;
-    private bool hadPlayed = false;
+    public bool hadPlayed = false;
     private Animator animator;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         animator = gameObject.GetComponent<Animator>();
+        
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Vector3.Distance(gameObject.transform.position, player.position) < 8.0f || hadPlayed) return;
-        // trigger spikes animation
-        animator.SetBool("isTriggered", true);
-        hadPlayed = true;
+        if (!hadPlayed)
+        {
+            if (Vector3.Distance(gameObject.transform.position, player.position) < 7.0f)
+            {
+                // trigger spikes animation
+                animator.SetBool("isTriggered", true);
+                hadPlayed = true;
+
+            }
+
+        }
+
     }
 }
