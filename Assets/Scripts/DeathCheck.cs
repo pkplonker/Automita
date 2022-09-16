@@ -20,4 +20,13 @@ public class DeathCheck : MonoBehaviour
             playerAnimation.PlayDeathAnimation();
         }
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Wall") || other.CompareTag("Obstacle"))
+        {
+            isDead = true;
+            playerAnimation.PlayDeathAnimation();
+        }
+    }
 }
