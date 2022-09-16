@@ -2056,7 +2056,7 @@ MonoBehaviour:
   rightPieces:
   - {fileID: 8205076132377593080, guid: ebed3db07a29c5742aacd7cf1f06ac9b, type: 3}
   maxSpawnedPieces: 8
-  startPieces: 7
+  startPieces: 6
   startStraightPieces: 4
   tileSize: 10
   cornerChance: 0.35
@@ -2742,7 +2742,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1641879591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2755,7 +2755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca0520b6f5f01fa42b1773e014d526e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetTimeMins: 10
+  targetTimeMins: 5
   infiniteWorld: {fileID: 1347610510}
 --- !u!4 &1641879592
 Transform:
@@ -2765,7 +2765,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1641879590}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -93.630585, y: -138.05353, z: 300.9898}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2785,6 +2785,14 @@ PrefabInstance:
     - target: {fileID: 731450259, guid: e4da2cc9cf68f864da53e88a1c6fab5c, type: 3}
       propertyPath: jumpForce
       value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 731450259, guid: e4da2cc9cf68f864da53e88a1c6fab5c, type: 3}
+      propertyPath: maxSpeed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 731450259, guid: e4da2cc9cf68f864da53e88a1c6fab5c, type: 3}
+      propertyPath: minPanSpeed
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 731450261, guid: e4da2cc9cf68f864da53e88a1c6fab5c, type: 3}
       propertyPath: turnUI
