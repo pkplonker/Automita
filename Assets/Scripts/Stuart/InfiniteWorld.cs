@@ -28,7 +28,7 @@ namespace StuartH
         private Queue<PieceType> spawnedPieceTypes = new Queue<PieceType>();
 
         private Compass compass = Compass.North;
-        private Vector3 currentPosition = new Vector3(0, 0, -2.5f);
+        private Vector3 currentPosition = new Vector3(0, 0, 0);
         private Vector3 currentDirection;
         private List<Vector3> directions = new List<Vector3>();
 
@@ -94,16 +94,11 @@ namespace StuartH
                 }
                 CalculateDirection(pieceType);
                 SpawnPiece(requestedPrefab, pieceType);
-                DespawnOldPiece();
                 break;
                 
             }
         }
-
-        private void DespawnOldPiece()
-        {
-            if (spawnedPieces.Count > maxSpawnedPieces) Destroy(spawnedPieces.Dequeue());
-        }
+        
 
         private void SpawnPiece(GameObject requestedPrefab, PieceType pieceType)
         {
@@ -137,8 +132,15 @@ namespace StuartH
             currentDirection = directions[(int)compass];
         }
 
+        private bool isFirst = true;
         private void DeleteCallback(GameObject tile)
         {
+            if (isFirst)
+            {
+                isFirst = false;
+                SpawnNext();
+                return;
+            }
             if (spawnedPieces.Peek() != tile) Debug.Log("Check this");
             Destroy(spawnedPieces.Dequeue());
             SpawnNext();
