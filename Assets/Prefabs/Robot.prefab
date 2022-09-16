@@ -726,7 +726,7 @@ MonoBehaviour:
   isActive: 0
   maxMoveAmount: 50
   minSpeed: 5
-  maxSpeed: 40
+  maxSpeed: 30
   minPanSpeed: 2
   maxPanSpeed: 8
   JumpVelocity: 0
