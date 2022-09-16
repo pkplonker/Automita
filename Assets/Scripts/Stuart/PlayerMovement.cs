@@ -82,7 +82,7 @@ namespace StuartH
 
                 if (Input.GetKey(KeyCode.Space))
                 {
-                    JumpVelocity = moveSpeed * jumpForce;
+                    JumpVelocity = 5 * jumpForce;
                 }
             }
             else
