@@ -12,18 +12,28 @@ namespace StuartH
     {
         [SerializeField] private TurnUI turnUI;
         [SerializeField] private float hideSpeed = 0.3f;
-        public void TriggerTurnEvent() => turnUI.Show(this);
+        public event Action<bool> OnTurnEvent; 
+        public void TriggerTurnEvent()
+        {
+            OnTurnEvent?.Invoke(true);
 
-        private void Awake() => turnUI.Hide(0);
+            turnUI.Show(this);
+        } 
+
+        private void Awake()=>turnUI.Hide(0);
+        
 
         public void TurnLeft()
         {
+            OnTurnEvent?.Invoke(false);
             transform.Rotate(Vector3.up, -90f);
             turnUI.Hide(hideSpeed);
         }
 
         public void TurnRight()
         {
+            OnTurnEvent?.Invoke(false);
+
             transform.Rotate(Vector3.up, 90f);
             turnUI.Hide(hideSpeed);
         }

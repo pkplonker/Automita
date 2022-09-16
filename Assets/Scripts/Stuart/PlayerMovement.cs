@@ -30,8 +30,12 @@ namespace StuartH
         private CharacterController characterController;
         public event Action<float> SpeedChange;
         public event Action OnDeath;
-
-        private void Awake() => characterController = GetComponent<CharacterController>();
+        private PlayerTurn playerTurn;
+        private void Awake()
+        {
+            playerTurn = GetComponent<PlayerTurn>();
+            characterController = GetComponent<CharacterController>();
+        } 
         public float GetSpeed() => moveSpeed;
 
 
@@ -41,11 +45,18 @@ namespace StuartH
         
         [SerializeField] private float mCrouchedHeight = 1.0f;
         [SerializeField] private float mStandingHeight = 2.0f;
-
-        private void OnEnable() => CountDown.OnGameStart += OnGameStart;
-
-        private void OnDisable()=> CountDown.OnGameStart -=OnGameStart;
-
+        private bool canPan = true;
+        private void OnEnable()
+        {
+            playerTurn.OnTurnEvent += OnTurn;
+            CountDown.OnGameStart += OnGameStart;
+        }
+        private void OnDisable()
+        {
+            playerTurn.OnTurnEvent -= OnTurn;
+            CountDown.OnGameStart -=OnGameStart;
+        } 
+        private void OnTurn(bool _canPan)=>canPan = !_canPan;
         private void OnGameStart() => SetEnabled(true);
 
         public void SetSpeed(float s)
@@ -58,11 +69,9 @@ namespace StuartH
         {
             if (!isActive) return;
             var move = transform.forward * moveSpeed;
-            if (Input.GetKey(KeyCode.A)) move -= transform.right * panSpeed;
-            if (Input.GetKey(KeyCode.D)) move += transform.right * panSpeed;
-            if (Input.GetKey(KeyCode.C)) characterController.height = mCrouchedHeight;
-            else characterController.height = mStandingHeight;
-            //Jump
+            if (Input.GetKey(KeyCode.A) && canPan) move -= transform.right * panSpeed;
+            if (Input.GetKey(KeyCode.D)&& canPan) move += transform.right * panSpeed;
+            characterController.height = Input.GetKey(KeyCode.C) ? mCrouchedHeight : mStandingHeight;
             if (characterController.isGrounded)
             {
                 JumpVelocity = -0.5f;
