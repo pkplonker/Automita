@@ -15,7 +15,6 @@ public class StopWatch : MonoBehaviour
     [SerializeField] private ScoreHolder highscore;
     private PlayerMovement player;
     private void OnDestroy()=>highscore.currentScore.time = currentTime;
-
     private void OnEnable()
     {CountDown.OnGameStart += StartTimer;
         player.OnDeath += Stop;
@@ -43,17 +42,30 @@ public class StopWatch : MonoBehaviour
     {
         timerActive = true;
         currentTime = 0;
+
+        StartCoroutine(UpdateTimeCor());
+    }
+
+    private IEnumerator UpdateTimeCor()
+    {
+        yield return new WaitForSeconds(0.1f);
+        UpdateTimeDisplay();
+        StartCoroutine(UpdateTimeCor());
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (timerActive == true){
-            currentTime = currentTime + Time.deltaTime;
+        if (timerActive )
+        {
+            currentTime +=Time.deltaTime;
         }
-        TimeSpan time = TimeSpan.FromSeconds(currentTime);
-        currentTimeText.text = time.ToString(@"mm\:ss\:ff");
     }
 
-   
+    private void UpdateTimeDisplay()
+    {
+        var time = TimeSpan.FromSeconds(currentTime);
+        currentTimeText.text = time.ToString(@"mm\:ss\:ff");
+    }
 }
