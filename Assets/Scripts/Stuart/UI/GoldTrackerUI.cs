@@ -21,7 +21,7 @@ namespace StuartH
         private void OnDisable()
         {
             GoldTracker.OnPickup -= PickUp;
-            CountDown.OnGameStart += GameStart;
+            CountDown.OnGameStart -= GameStart;
 
         }
         private void Start() => HideUI();

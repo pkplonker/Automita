@@ -17,7 +17,6 @@ public class DeathCheck : MonoBehaviour
         if (other.CompareTag("Wall") || other.CompareTag("Obstacle"))
         {
             isDead = true;
-            Debug.Log("Dead");
             playerAnimation.PlayDeathAnimation();
         }
     }

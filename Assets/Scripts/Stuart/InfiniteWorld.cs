@@ -70,7 +70,6 @@ namespace StuartH
 
         private void SpawnNext(GameObject requestedPrefab = null)
         {
-            Debug.Log(spawnedPieces.Count + ":" + spawnedPieceTypes.Count);
             while (true)
             {
                 GameObject spawnedObject = null;
@@ -141,7 +140,6 @@ namespace StuartH
                 SpawnNext();
                 return;
             }
-            if (spawnedPieces.Peek() != tile) Debug.Log("Check this");
             Destroy(spawnedPieces.Dequeue());
             SpawnNext();
         }
