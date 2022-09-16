@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
 
 namespace StuartH
@@ -194,5 +196,7 @@ namespace StuartH
         }
 
 
+        public List<Transform> GetAllTiles()=>spawnedPieces.Select(s => s.transform).ToList();
+        
     }
 }
