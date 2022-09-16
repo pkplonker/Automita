@@ -7,8 +7,11 @@ public class PlayerSoundEffect : MonoBehaviour
     CharacterController player;
     private AudioSource footStepsEff;
     public AudioClip JumpEff;
-   
+    public AudioClip CrouchEff;
+
     private bool footStepActive;
+    private bool CrouchActive;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +21,8 @@ public class PlayerSoundEffect : MonoBehaviour
         footStepActive = false;
         footStepsEff.loop = false;
         //footStepsEff.enabled = false;
+
+        CrouchActive = false;
     }
 
     // Update is called once per frame
@@ -39,6 +44,18 @@ public class PlayerSoundEffect : MonoBehaviour
             footStepActive = false;
 
         }
+        if(Input.GetKeyDown(KeyCode.C) && CrouchActive == false)
+        {
+            footStepsEff.loop = false;
+            footStepsEff.PlayOneShot(CrouchEff);
+            footStepActive = false;
+            CrouchActive = true;
+        }
+        else if(!(Input.GetKeyDown(KeyCode.C)))
+        {
+            CrouchActive = false;
+        }
+
 
 
         if (DeathCheck.isDead)
